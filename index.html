@@ -1,74 +1,97 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+        // Whenever the user explicitly chooses light mode
+        localStorage.theme = 'light'
+
+        // Whenever the user explicitly chooses dark mode
+        localStorage.theme = 'dark'
+
+        // Whenever the user explicitly chooses to respect the OS preference
+        localStorage.removeItem('theme')
+    </script>
 
     <title>Tech Zoned</title>
 </head>
 
-<body class="bg-white">
+<body class="bg-white dark:bg-black">
     <section id="navbar">
         <div>
-            <nav class="bg-gray-400 h-30 border-y-4 border-blue-600">
+            <nav class="bg-gray-400 dark:bg-gray-600 h-30 border-y-4 w-screen border-blue-600 fixed">
                 <a class="absolute" href="./index.html"><img class="mt-1 ml-10 h-20 w-20" src="./images/logo.png"
                         alt="logo"></a>
                 <ul class="flex justify-center relative font-serif text-l">
-                    <li class="p-2"><a class="hover:text-blue-600" href="./index.html">Home</a></li>
-                    <li class="p-2"><a class="hover:text-blue-600" href="./about.html">About</a></li>
-                    <li class="p-2"><a class="hover:text-blue-600" href="./contact.html">Contact</a></li>
+                    <li class="p-2"><a class="hover:text-blue-600 dark:text-white" href="./index.html">Home</a></li>
+                    <li class="p-2"><a class="hover:text-blue-600 dark:text-white" href="./about.html">About</a></li>
+                    <li class="p-2"><a class="hover:text-blue-600 dark:text-white" href="./contact.html">Contact</a>
+                    </li>
                 </ul>
             </nav>
         </div>
     </section>
     <section id="content">
-        <div class="bg-white mx-64 flex">
+        <div class="bg-white dark:bg-black mx-64 flex">
             <div>
                 <h1 class="text-blue-600 font-bold text-3xl pt-16 mr-52">Basic Language Of The Web : HTML?</h1>
                 <div class="flex text-center">
                     <img class="mt-7 h-10 border-2 border-blue-600" src="./images/laura-jones.jpg" alt="Laura Jones">
-                    <p class="pt-8 pl-5">Posted by <a href=""><strong class="font-bold underline">Laura
+                    <p class="pt-8 pl-5 dark:text-white">Posted by <a href=""><strong class="font-bold underline">Laura
                                 Jones</strong></a>
                         on Saturday, July 8th 2023
                     </p>
                 </div>
                 <img class="mt-7 max-h-96 border-4 border-blue-600" src="./images/coding.jpg" alt="Laura Jones">
-                <p class="pt-3 mr-60">All modern websites and web applications are built using three fundamental
+                <p class="pt-3 mr-60 dark:text-white">All modern websites and web applications are built using three
+                    fundamental
                     technologies:
                     HTML, CSS and
                     JavaScript. These are the languages of the web.
                 </p>
-                <p class="pt-3 mr-60">In this post, let's focus on HTML. We will learn what HTML is all about, and why
+                <p class="pt-3 mr-60 dark:text-white">In this post, let's focus on HTML. We will learn what HTML is all
+                    about, and why
                     you
                     too
                     should learn it.
                 </p>
                 <h1 class="text-blue-600 font-bold text-2xl pt-5">What is HTML?</h1>
-                <p class="pt-3 mr-60">HTML stands for <strong>HyperText Markup Language</strong>. It's a markup language
+                <p class="pt-3 mr-60 dark:text-white">HTML stands for <strong>HyperText Markup Language</strong>. It's a
+                    markup language
                     that web developers
                     use to structure and describe the content of a webpage (not a programming language).</p>
-                <p class="pt-3 mr-60">HTML consists of elements that describe different types of content: paragraphs,
+                <p class="pt-3 mr-60 dark:text-white">HTML consists of elements that describe different types of
+                    content: paragraphs,
                     links,
                     headings, images, video, etc. Web browsers understand HTML and render HTML code as websites.</p>
-                <p class="pt-3 mr-60">In HTML, each element is made up of 3 parts:
-                <ol>
+                <p class="pt-3 mr-60 dark:text-white">In HTML, each element is made up of 3 parts:
+                <ol class="dark:text-white">
                     <li>☆ Opening Tag</li>
                     <li>☆ Actual element</li>
                     <li>☆ Closing Tag</li>
                 </ol>
                 </p>
-                <p class="pt-3 mr-60">You can learn more at the <a
+                <p class="pt-3 mr-60 dark:text-white">You can learn more at the <a
                         href="https://developer.mozilla.org/en-US/docs/Web/HTML"><strong
-                            class="font-bold text-blue-400 hover:text-black">MDN
+                            class="font-bold text-blue-400 hover:text-black dark:hover:text-white">MDN
                             Web Docs</strong></a>.
                 </p>
                 <h1 class="text-blue-600 font-bold text-2xl pt-5">Why learn HTML?</h1>
-                <p class="pt-3 mr-60">There are countless reasons for learning the fundamental language of the web. Here
+                <p class="pt-3 mr-60 dark:text-white">There are countless reasons for learning the fundamental language
+                    of the web. Here
                     are
                     5 of them:
-                <ol>
+                <ol class="dark:text-white">
                     <li>☆ To be able to use the fundamental web dev language</li>
                     <li>☆ To hand-craft beautiful websites instead of relying on tools like Worpress or Wix</li>
                     <li>☆ To build web applications</li>
@@ -76,35 +99,99 @@
                     <li>☆ To have fun! 😁</li>
                 </ol>
                 </p>
-                <p class="pt-3 mr-60">Hope you learnt something new! See you next time!</p>
+                <p class="pt-3 mr-60 dark:text-white">Hope you learnt something new! See you next time!</p>
                 <h1 class="text-blue-600 font-bold text-3xl pt-5 pb-32">YOU JUST GOT TECH-ZONED!</h1>
             </div>
-            <div class="bg-gray-300 relative l-50 w-96 text-center m-10 h-max border-4 border-blue-600">
-                <h1 class="font-semibold mt-5">Related Posts</h1>
+            <div
+                class="bg-gray-300 dark:bg-gray-700 fixed l-50 w-96 text-center m-10 h-max border-4 border-blue-600 left-2/3 top-20">
+                <h1 class="font-semibold mt-5 dark:text-white">Related Posts</h1>
                 <div class="flex text-left">
-                    <img class="pt-7 h-16 ml-3" src="./images/link1.jpg" alt="post">
+                    <img class="pt-7 h-16 ml-3 border-b-4 border-blue-600" src="./images/link1.jpg" alt="post">
                     <p class="pt-7 pl-1 text-xs">
-                        <a class="hover:text-blue-600" href="">How To Start Full Stack Web Development.</a>
+                        <a class="hover:text-blue-600 dark:text-white" href="">How To Start Full Stack Web
+                            Development.</a>
                     </p>
                 </div>
                 <div class="flex text-left">
-                    <img class="pt-7 h-16 ml-3" src="./images/link2.jpg" alt="post">
+                    <img class="pt-7 h-16 ml-3 border-b-4 border-blue-600 " src="./images/link2.jpg" alt="post">
                     <p class="pt-7 pl-1 text-xs">
-                        <a class="hover:text-blue-600" href="">Why JavaScript Is Still Awesome in 2023.</a>
+                        <a class="hover:text-blue-600 dark:text-white" href="">Why JavaScript Is Still Awesome in
+                            2023.</a>
                     </p>
                 </div>
                 <div class="flex text-left">
-                    <img class="pt-7 h-16 ml-3" src="./images/link3.jpg" alt="post">
+                    <img class="pt-7 h-16 ml-3 border-b-4 border-blue-600" src="./images/link3.jpg" alt="post">
+                    <p class="pt-7 pl-1 text-xs">
+                        <a class="hover:text-blue-600 dark:text-white" href="">The Unknown Powers of frontend.</a>
+                    </p>
+                </div>
+                <div class="flex text-left">
+                    <img class="pt-7 h-16 ml-3 border-b-4 border-blue-600"
+                        src="https://i.pinimg.com/1200x/f2/15/72/f215726871e4f437570bb725d26c5ae1.jpg" alt="post">
+                    <p class="pt-7 pl-1 text-xs">
+                        <a class="hover:text-blue-600 dark:text-white" href="">Know how to start with Tailwind-css.</a>
+                    </p>
+                </div>
+                <div class="flex text-left">
+                    <img class="pt-7 h-16 ml-3 border-b-4 border-blue-600"
+                        src="https://previews.123rf.com/images/cosmosquirrel/cosmosquirrel1607/cosmosquirrel160700004/60552513-blue-square-background-with-program-code.jpg"
+                        alt="post">
+                    <p class="pt-7 pl-1 text-xs">
+                        <a class="hover:text-blue-600 dark:text-white" href="">13 Web Dev Projects to kickstart your
+                            journey.</a>
+                    </p>
+                </div>
+                <div class="flex text-left">
+                    <img class="pt-7 h-16 ml-3 border-b-4 border-blue-600"
+                        src="https://png.pngtree.com/png-clipart/20200727/original/pngtree-modern-square-coding-logo-template-designs-png-image_5248023.jpg"
+                        alt="post">
                     <p class="pt-7 pl-1 pb-12 text-xs">
-                        <a class="hover:text-blue-600" href="">The Unknown Powers of frontend.</a>
+                        <a class="hover:text-blue-600 dark:text-white" href="">Reimagine your site with three.js.</a>
                     </p>
+                </div>
+                <div class="border-2 border-blue-600">
+                    <button type="button"
+                        class="text-blue-700 border border-blue-700 hover:bg-blue-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 mb-1 text-center inline-flex items-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:focus:ring-blue-800 dark:hover:bg-blue-500">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                            viewBox="0 0 18 18">
+                            <path
+                                d="M3 7H1a1 1 0 0 0-1 1v8a2 2 0 0 0 4 0V8a1 1 0 0 0-1-1Zm12.954 0H12l1.558-4.5a1.778 1.778 0 0 0-3.331-1.06A24.859 24.859 0 0 1 6 6.8v9.586h.114C8.223 16.969 11.015 18 13.6 18c1.4 0 1.592-.526 1.88-1.317l2.354-7A2 2 0 0 0 15.954 7Z" />
+                        </svg>
+                        <span class="sr-only">Like the article</span>
+                    </button>
+                    <button id="theme-toggle" type="button"
+                        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 mt-1">
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                                fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                    <button type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                        <span class="sr-only">Icon description</span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 </body>
+
+<script src="./index.js"></script>
+
 <footer>
-    <h3 class="text-center py-8 bg-gray-400 border-y-4 border-blue-600">©Tech Zoned 2023</h3>
+    <h3 class="text-center py-8 bg-gray-400 dark:bg-gray-700 dark:text-white border-y-4 border-blue-600">©Tech Zoned
+        2023</h3>
 </footer>
 
 </html>
